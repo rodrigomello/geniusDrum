@@ -4,11 +4,11 @@
   "description": "Uma adaptação do clássico Genius usando bateria",
   "launch_path": "/index.html",
   "icons": {
-    "48": "/img/icons/icone.png",
+    "48": "/img/icons/icone.ico",
+    "128": "/img/icons/icon128.ico"
+    },
   
-  "orientacion": "landscape"
-
-  },
+  "orientacion": "landscape",
 
   "default_locale": "pt-br"
 }
