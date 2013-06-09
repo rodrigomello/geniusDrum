@@ -8,7 +8,7 @@
     "128": "/img/icons/icon128.ico"
     },
   
-  "orientacion": "landscape",
+  "orientation": "landscape",
 
   "default_locale": "pt-br"
 }
