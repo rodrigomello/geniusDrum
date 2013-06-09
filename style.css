@@ -1,14 +1,17 @@
+body {
+  background-color: #585858;
+}
+
 #container{
-	width: 480px;
-	height: 320px;
-	background-color: #585858;
+	width: 420px;
+	height: 300px;
 }
 
 #menu{
 	margin-right: auto;
 	position: relative;
-    width: 480px;
-    height: 320px;
+    width: 420px;
+    height: 300px;
     text-align: center;
  
 }
