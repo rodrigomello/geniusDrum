@@ -16,6 +16,15 @@ body {
  
 }
 
+#menu2{
+  margin-right: auto;
+  position: relative;
+    width: 420px;
+    height: 300px;
+    text-align: center;
+ 
+}
+
 #tudo{
   text-align: center;
 	margin-left: auto;

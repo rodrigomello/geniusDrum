@@ -5,7 +5,7 @@ var preload;
     var assobio;
     var score; //vtFila.length-1
     var level = 0;
-    var pontuacao;
+    var pontuacao = 0;
 
 
 	function playFila()
@@ -127,7 +127,7 @@ function levelup(level){
 		pause("menu2");
 		player = 0;
 		pontuacao = vtFila.length;
-
+		topo.innerHTML = "<br> Pontos: " + pontuacao;
 		if (level == 0) 	{
 			vtFila = vtFila.concat(["caixa", "bumbo", "caixa"]);
 		}	

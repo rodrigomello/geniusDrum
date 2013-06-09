@@ -22,7 +22,7 @@ Genius Drum
 			<br><br><br><br><br><br>
             <span class="button" id="try" onclick="document.getElementById('menu').style.display= 'none'; document.getElementById('tudo').style.display='block';init();" >Tente Novamente</span>
     </div>
-    <!-- Alinhar essa div -->
+    
     <div id="menu2" style="display: none">
 			<br><br><br><br><br><br>
             <span class="button" id="try" onclick="document.getElementById('menu2').style.display= 'none'; document.getElementById('tudo').style.display='block';init();" >Level UP!! </span>
@@ -30,8 +30,8 @@ Genius Drum
 
         
 		<div id="tudo">
-
-			<div id="topo"><br> Pontuacao </div>
+			
+			<div id="topo"><br> </div>
 
 			<div id="superior">
 				<div class="teste" id = "chimbu-1">
@@ -97,7 +97,7 @@ Genius Drum
 </div>
 
 <script>
-
+topo.innerHTML = "<br> Pontuacao " + pontuacao;
 desenhaPrato(document.getElementById("chimbu"),0, 0, 95, "#6495ED");
 cliqueDesenhaPrato(document.getElementById("chimbu-clique"),0, 0, 95, "#6495ED");
 desenhaCirculo(document.getElementById("tom1"),50, 50, 40, "#FF8C00");
