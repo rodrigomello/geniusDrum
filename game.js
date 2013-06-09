@@ -1,5 +1,5 @@
 var preload;
-    var vtFila = ["chimbu", "tom1", "tom2"];//, "surdo", "prato", "chimbu", "tom1", "tom2", "surdo", "prato"];
+    var vtFila = ["bumbo", "bumbo", "caixa"];//, "surdo", "prato", "chimbu", "tom1", "tom2", "surdo", "prato"];
     var ind;
     var player;
     var assobio;
@@ -10,7 +10,7 @@ var preload;
 	function playFila()
 	{
 		//if (vtFila.length>0){
-		if(ind < vtFila.length){
+		if((ind < vtFila.length) && (player == -1)){
 			console.log(vtFila[0], vtFila.length);
 			playSound(document.getElementById(vtFila[ind]));//vtFila.length-1]));
 			//vtFila.pop(0);
@@ -100,8 +100,7 @@ var preload;
 				player = player + 1;
 				if(player == vtFila.length){
 					levelup(level);
-				}
-					
+				}	
 			}
 		}
 		
@@ -123,12 +122,20 @@ var preload;
 }
 
 function levelup(level){
-		vtFila = ["chimbu", "tom1", "tom2", "surdo", "prato"];
-
-		 
-		sleep(1000);
-		player = -1; 
-		level = level+1;
+		
 		pause("menu2");
+		player = 0;
+		if (level == 0) 		vtFila = vtFila.concat(["caixa", "bumbo", "caixa"]);
+		if (level == 1) 		vtFila = vtFila.concat(vtFila);
+		//level 0 e 1 => que isso novinha
+		if (level == 2 ) vtFila = ["tom1","tom1","tom2","surdo","caixa","prato"];
+		if (level == 3) vtFila = vtFila.concat(["bumbo", "caixa", "bumbo","bumbo", "caixa"]);
+		// só vou beber mais hoje
+		if(level == 4 )vtFila = ["bumbo","caixa","bumbo","caixa","bumbo"];
+		if (level == 5) vtFila = vtFila.concat(["prato","caixa","prato"]);
+		if (level ==6 ) vtFila = vtFila.concat(vtFila);
+		//TNT 
+		level = level+1;
+
 }
 	
