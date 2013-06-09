@@ -1,0 +1,138 @@
+var preload;
+var score = 0;
+
+var play = 0;
+
+var seq1 = new Array ("1","4");
+var cont = 1;
+var it;
+
+var aux;
+
+function init() {
+    if (window.top != window) {
+        document.getElementById("header").style.display = "none";
+    }
+
+    if (!createjs.Sound.initializeDefaultPlugins()) {
+        document.getElementById("error").style.display = "block";
+        document.getElementById("content").style.display = "none";
+        return;
+    }
+
+    document.getElementById("loader").className = "loader";
+    var assetsPath = "assets/";
+    var manifest = [
+                {src:assetsPath+"caixa.wav", id:1},
+                {src:assetsPath+"bumbo.wav", id:2},
+                {src:assetsPath+"cymbal.wav", id:3},
+
+                {src:assetsPath+"prato.wav", id:4},
+                {src:assetsPath+"Humm.mp3|"+assetsPath+"Humm.ogg", id:5},
+                {src:assetsPath+"R-Damage.mp3|"+assetsPath+"R-Damage.ogg", id:6},
+
+                {src:assetsPath+"Thunder1.mp3|"+assetsPath+"Thunder1.ogg", id:7},
+                {src:assetsPath+"S-Damage.mp3|"+assetsPath+"S-Damage.ogg", id:8},
+                {src:assetsPath+"U-CabinBoy3.mp3|"+assetsPath+"U-CabinBoy3.ogg", id:9},
+
+                {src:assetsPath+"ToneWobble.mp3|"+assetsPath+"ToneWobble.ogg", id:10},
+                {src:assetsPath+"Game-Death.mp3|"+assetsPath+"Game-Death.ogg", id:11},
+                {src:assetsPath+"Game-Break.mp3|"+assetsPath+"Game-Break.ogg", id:12}  //OJR would prefer a new sound rather than a copy
+            ];
+          
+
+
+    createjs.Sound.addEventListener("fileload", createjs.proxy(soundLoaded, this)); // add an event listener for when load is completed
+    createjs.Sound.registerManifest(manifest);
+    
+    it = 0;
+    aux = 0;
+    start1();
+}
+
+function soundLoaded(event) {
+    document.getElementById("loader").className = "";
+    var div = document.getElementById(event.id);
+    div.style.backgroundImage = "url('assets/audioButtonSheet.png')";
+}
+
+function stop() {
+    if (preload != null) { preload.close(); }
+    createjs.Sound.stop();
+}
+
+
+function playSound(target) {
+    //Play the sound: play (src, interrupt, delay, offset, loop, volume, pan)
+    var instance = createjs.Sound.play(target.id, createjs.Sound.INTERRUPT_NONE, 0, 0, false, 1);
+    if (instance == null || instance.playState == createjs.Sound.PLAY_FAILED) { return; }
+    console.log("playsound",target.id);
+    target.className = "gridBox active";
+    instance.myId = target.id;
+    aux = 1;
+	instance.addEventListener ("complete", fallback,false);
+	
+    
+	if(target.id != seq1[play]){
+		//errou
+	}else{
+		play = play + 1;	
+		
+		//ver o tempo
+		if(cont == play){ 
+			cont = cont + 1; 
+            play = 0;
+            it = 0;
+			start1();
+		}
+	}
+}
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
+
+function gridbox(evt) {
+
+    console.log('gridbox',evt);
+    var i = evt.target.myId;
+    console.log(seq1[i],i);
+    document.getElementById(seq1[i]).className = "gridBox";
+//	sleep(700);
+    it = it + 1;    
+    
+    while(document.getElementById(seq1[i]).className != "gridBox")
+	    if(it <	seq1.length &&  it < cont)
+    		start1();
+}
+
+function fallback(evt) {
+
+    console.log('fallback',evt);
+    var i = evt.target.myId;
+    sleep(400);
+    console.log('fallback',i);
+    document.getElementById(i).className = "gridBox";
+}
+
+function start1(){
+	if(it == 0) sleep(10000);
+        
+	var instance = createjs.Sound.play(seq1[it], createjs.Sound.INTERRUPT_NONE, 0, 0, false, 1);
+	if (instance == null || instance.playState == createjs.Sound.PLAY_FAILED) { return; }
+	document.getElementById(seq1[it]).className="gridBox active";
+    console.log("antes ",seq1[it],it);
+    instance.myId = it;
+    instance.addEventListener("complete", gridbox, false);
+    aux = 1;
+//tocar um som para indicar o inicio da jogada
+
+}
+
+function fim(){
+	document.getElementById("content").innerHTML = score.toString();
+}

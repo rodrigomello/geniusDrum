@@ -1,0 +1,17 @@
+{
+  "version": "0.1",
+  "name": "GeniusDrm",
+  "description": "Uma adaptação do clássico Genius usando bateria",
+  "launch_path": "/index.html",
+  "icons": {
+    "128": "/img/icons/icon128.ico"
+    },
+  
+  "orientation": "landscape",
+
+  "default_locale": "pt-br",
+
+  "developer": {
+    "name": "Time XGH"
+  }
+}

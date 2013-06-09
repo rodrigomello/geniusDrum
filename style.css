@@ -1,0 +1,85 @@
+body {
+  background-color: #585858;
+}
+
+#container{
+	width: 420px;
+	height: 300px;
+}
+
+#menu{
+	margin-right: auto;
+	position: relative;
+    width: 420px;
+    height: 300px;
+    text-align: center;
+ 
+}
+
+#menu2{
+  margin-right: auto;
+  position: relative;
+    width: 420px;
+    height: 300px;
+    text-align: center;
+ 
+}
+
+#tudo{
+  text-align: center;
+	margin-left: auto;
+  margin-right: auto;
+	position: relative;
+  width: 415px;
+  border: 1px solid #585858;
+  background-image:url("img/bg.jpg");
+}
+
+.teste{
+	margin-left: auto;
+    margin-right: auto;
+   	float: left;
+}
+
+#topo{
+	color: white;
+	width: 415px;
+	height: 50px;
+	position: relative;
+	background-image:url("img/barra.jpg");
+}
+
+#superior{
+	width: 415px;
+	height: 106px;
+	position: relative;
+}
+
+#inferior{
+	float: inherit;
+	width: 340px;
+	height: 116px;
+	position: relative;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+/*botao*/
+.button {
+   border-top: 1px solid #717f87;
+   background: #363636;
+   padding: 15px 30px;
+
+   border-radius: 36px;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: white;
+   font-size: 13px;
+   font-family: Georgia, Serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+.button:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+   }
