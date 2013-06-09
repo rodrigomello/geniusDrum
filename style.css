@@ -23,7 +23,7 @@ body {
 	position: relative;
   width: 415px;
   border: 1px solid #585858;
-  background-image:url("bg.jpg");
+  background-image:url("img/bg.jpg");
 }
 
 .teste{
@@ -37,7 +37,7 @@ body {
 	width: 415px;
 	height: 50px;
 	position: relative;
-	background-image:url("barra.jpg");
+	background-image:url("img/barra.jpg");
 }
 
 #superior{
