@@ -4,6 +4,8 @@ var preload;
     var player;
     var assobio;
     var score; //vtFila.length-1
+    var level = 0;
+
 
 	function playFila()
 	{
@@ -13,10 +15,9 @@ var preload;
 			playSound(document.getElementById(vtFila[ind]));//vtFila.length-1]));
 			//vtFila.pop(0);
 			ind = ind + 1;
-			//vtFila = vtFila.slice(1);
-			
-			
+			//vtFila = vtFila.slice(1);	
 			assobio = 0; //gambi
+
 		}else if(player == -1){
 			player = 0;
 			if(assobio == 0){
@@ -58,7 +59,7 @@ var preload;
         createjs.Sound.registerManifest(manifest);
         ind = 0;
         player = -1;
-		playFila();            
+				playFila();            
     }
 
     function soundLoaded(event) {
@@ -94,16 +95,40 @@ var preload;
 				console.log("errou", target.id);
 				createjs.Sound.play("grito", createjs.Sound.INTERRUPT_NONE, 0, 0, false, 1);
 				player = -1;
-				pause();
+				pause("menu");
 			}else{
 				player = player + 1;
+				if(player == vtFila.length){
+					levelup(level);
+				}
+					
 			}
 		}
 		
 	}
-	
-	function pause(){
-		document.getElementById("menu").style.display = 'block';
+
+
+	function pause(id){
+		document.getElementById(id).style.display = 'block';
 		document.getElementById("tudo").style.display = 'none';				
 		
 	}
+	function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
+
+function levelup(level){
+		vtFila = ["chimbu", "tom1", "tom2", "surdo", "prato"];
+
+		 
+		sleep(1000);
+		player = -1; 
+		level = level+1;
+		pause("menu2");
+}
+	
