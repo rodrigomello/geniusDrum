@@ -14,12 +14,13 @@
 }
 
 #tudo{
+  text-align: center;
 	margin-left: auto;
-    margin-right: auto;
+  margin-right: auto;
 	position: relative;
-    width: 415px;
-    border: 1px solid #585858;
-    background-image:url("bg.jpg");
+  width: 415px;
+  border: 1px solid #585858;
+  background-image:url("bg.jpg");
 }
 
 .teste{
